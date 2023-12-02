@@ -1,0 +1,67 @@
+<!-- box_office_result.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>票房分析结果 - {{ category }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* 添加表格样式 */
+        table {
+            width: 100%; /* 或根据需要设置宽度 */
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd; /* 添加边框 */
+            padding: 8px; /* 添加内边距 */
+            text-align: center; /* 水平居中 */
+        }
+    </style>
+</head>
+<body>
+    <h1>票房分析结果 - {{ category }}</h1>
+
+    <table>
+        <!-- 表格头部 -->
+        <tr>
+            <th>{{ category }}</th>
+            <th>平均票房</th>
+        </tr>
+        <!-- 表格数据 -->
+        {% for item, avg_box in results %}
+        <tr>
+            <td>{{ item }}</td>
+            <td>{{ avg_box }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <canvas id="boxOfficeChart"></canvas>
+    
+    <a href="/box_analysis">返回</a>
+</body>
+</html>
+
+<script>
+    var ctx = document.getElementById('boxOfficeChart').getContext('2d');
+    var boxOfficeChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ results | map(attribute=0) | list | tojson }},
+            datasets: [{
+                label: '平均票房',
+                data: {{ results | map(attribute=1) | list | tojson }},
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

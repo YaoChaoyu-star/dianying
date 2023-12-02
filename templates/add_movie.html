@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>录入电影</title>
+</head>
+<body>
+    <h1>录入电影信息</h1>
+    <form action="/add_movie" method="post">
+        <label for="movie_id">电影 ID:</label>
+        <input type="text" id="movie_id" name="movie_id"><br><br>
+
+        <label for="movie_name">电影名称:</label>
+        <input type="text" id="movie_name" name="movie_name"><br><br>
+
+        <label for="release_date">上映日期:</label>
+        <input type="text" id="release_date" name="release_date"><br><br>
+
+        <label for="country">国家:</label>
+        <input type="text" id="country" name="country"><br><br>
+
+        <label for="type">种类:</label>
+        <input type="text" id="type" name="type"><br><br>
+
+        <label for="year">年份:</label>
+        <input type="text" id="year" name="year"><br><br>
+
+        <input type="submit" value="上传">
+    </form>
+    <a href="/">返回</a>
+</body>
+</html>

@@ -1,48 +1,66 @@
-/* 页面整体 */
+/* 页面的基本样式 */
 body {
-    margin: auto;
-    max-width: 580px;
-    font-size: 14px;
-    font-family: Helvetica, Arial, sans-serif;
-}
-
-/* 页脚 */
-footer {
-    color: #888;
-    margin-top: 15px;
-    text-align: center;
-    padding: 10px;
-}
-
-/* 头像 */
-.jiuming {
-    width: 40px;
-}
-
-/* 电影列表 */
-.movie-list {
-    list-style-type: none;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* 浅灰色背景 */
+    color: rgba(51, 51, 51, 0.545); /* 深灰色文本 */
+    line-height: 1.6;
+    margin: 0;
     padding: 0;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    text-align: center;
 }
 
-.movie-list li {
-    padding: 12px 24px;
-    border-bottom: 1px solid #ddd;
+/* 标题部分的样式 */
+h1 {
+    background-color: #ffffff; /* 白色背景 */
+    color: #333; /* 深灰色文本 */
+    padding: 20px 0;
+    margin: 0;
+    font-size: 2.5em;
 }
 
-.movie-list li:last-child {
-    border-bottom:none;
+h1 img.jiuming {
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 15px;
 }
 
-.movie-list li:hover {
-    background-color: #f8f9fa;
+/* 按钮容器 */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-/* 龙猫图片 */
-.bb {
-    display: block;
-    margin: 0 auto;
-    height: 100px;
+/* 按钮的样式 */
+button, input[type="submit"] {
+    background-color: #ffffff; /* 白色背景 */
+    color: #333; /* 深灰色文本 */
+    border: 1px solid #ddd; /* 浅灰色边框 */
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #e6e6e6; /* 鼠标悬停时的浅灰色背景 */
+}
+
+/* 脚注样式 */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8; /* 浅灰色背景 */
+    color: #333; /* 深灰色文本 */
+}
+
+footer a {
+    color: #333;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }

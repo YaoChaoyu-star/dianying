@@ -2,23 +2,51 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <title>{{ user.name }}的电影管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>姚超宇的电影管理系统</title>
     <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+    <style>
+        table {
+            width: 100%; /* 或根据需要设置宽度 */
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd; /* 添加边框 */
+            padding: 8px; /* 添加内边距 */
+            text-align: center; /* 水平居中 */
+        }
+    </style>
 </head>
 <body>
-    <h2>
+    <h1>
         <img alt="姚超宇的照片" class="jiuming" src="{{ url_for('static', filename='images/jiuming.jpg') }}">
-        {{ user.name }}' 的电影管理系统
-    </h2>
+        姚超宇的电影管理系统
+    </h1>
+    <div class="buttons">
+        <a href="/add_movie"><button>录入电影</button></a>
 
-    <p>{{ movies|length }}部电影</p>
-    <ul class="movie-list">
-        {% for movie in movies %} 
-        <li>{{ movie.title }} - {{ movie.year }}</li> 
-        {% endfor %} 
-    </ul>
-    <img alt="loopy" class="bb" src="{{ url_for('static', filename='images/bb.jpg') }}">
+        <form action="/search_actor" >
+            <input type="submit" value="查询演员信息" />
+        </form>
+
+        <form action="/search_movie" >
+            <input type="submit" value="查询电影信息" />
+        </form>
+
+        <a href="/box_analysis"><button>票房分析</button></a>
+
+    </div>
+
+    <script>
+        // 导航函数
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+    
+
+
     <footer>
         <small>&copy; 2018 <a href="http://helloflask.com/book/3">HelloFlask</a></small>
     </footer>
