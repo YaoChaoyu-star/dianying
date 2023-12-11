@@ -3,6 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>录入电影</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        label, input {
+            margin: 5px;
+        }
+        input[type="text"], input[type="submit"] {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+        }
+        input[type="submit"] {
+            background-color: #616c61;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #768177;
+        }
+        a {
+            color: #616c61;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>录入电影信息</h1>

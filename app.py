@@ -86,19 +86,29 @@ def search_actor():
     if request.method == 'POST':
         actor_query = request.form.get('actor_query')
         actors = actor.query.filter(actor.actor_name.contains(actor_query)).all()
-        return render_template('search_actor_results.html', actors=actors)
+        actor_movies = {}
+        for a in actors:
+            movies = movie.query.join(relation, movie.movie_id == relation.movie_id).filter(relation.actor_id == a.actor_id).all()
+            actor_movies[a.actor_id] = movies
+        return render_template('search_actor_results.html', actors=actors, actor_movies=actor_movies)
     return render_template('search_actor.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-@app.route('/search_movie', methods=['GET','POST'])
+@app.route('/search_movie', methods=['GET', 'POST'])
 def search_movie():
     if request.method == 'POST':
         movie_query = request.form.get('movie_query')
         movies = movie.query.filter(movie.movie_name.contains(movie_query)).all()
-        return render_template('search_movie_results.html', movies=movies)
+        movie_actors = {}
+        for m in movies:
+            actors = actor.query.join(relation, actor.actor_id == relation.actor_id).filter(relation.movie_id == m.movie_id).all()
+            movie_actors[m.movie_id] = actors
+        return render_template('search_movie_results.html', movies=movies, movie_actors=movie_actors)
     return render_template('search_movie.html')
+
 
 @app.route('/add_movie', methods=['GET', 'POST'])
 def add_movie():
@@ -147,3 +157,13 @@ def box_by_country():
 @app.route('/box_analysis')
 def initial_box_office_analysis():
     return render_template('box_analysis.html')
+
+@app.route('/all_movies')
+def all_movies():
+    movies = movie.query.all()
+    return render_template('all_movies.html', movies=movies)
+
+@app.route('/all_actors')
+def all_actors():
+    actors = actor.query.all()
+    return render_template('all_actors.html', actors=actors)

@@ -20,7 +20,7 @@
             text-align: left;
         }
         th {
-            background-color: #4CAF50;
+            background-color: #616c61;
             color: white;
         }
         tr:nth-child(even) {
@@ -41,14 +41,25 @@
         </tr>
         {% for movie in movies %}
         <tr>
-            <td>{{ movie.movie_name}}</td> 
+            <td><a href="https://v.qq.com/x/search/?q={{ movie.movie_name | urlencode }}" target="_blank"style="color: rgb(52, 50, 50);">{{ movie.movie_name }}</a></td>
             <td>{{ movie.release_date }}</td> 
             <td>{{ movie.country }}</td>
             <td>{{ movie.type }}</td>
             <td>{{ movie.year }}</td>
         </tr>
+        <tr>
+            <td colspan="5">  <!-- 或根据您的列数调整 colspan 的值 -->
+                <strong>主创团队：</strong>
+                {% for actor in movie_actors[movie.movie_id] %}
+                    {{ actor.actor_name }}
+                {% endfor %}
+            </td>
+
+        </tr>
         {% endfor %}
     </table>
+
+    
     {% else %}
         <p>没有找到电影</p>
     {% endif %}

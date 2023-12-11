@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有电影</title>
+    <style>
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #616c61;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>电影列表</h1>
+    <table>
+        <tr>
+            <th>电影 ID</th>
+            <th>电影名称</th>
+            <th>上映日期</th>
+            <th>国家</th>
+            <th>种类</th>
+            <th>年份</th>
+        </tr>
+        {% for m in movies %}
+            <tr>
+                <td>{{ m.movie_id }}</td>
+                <td>{{ m.movie_name }}</td>
+                <td>{{ m.release_date }}</td>
+                <td>{{ m.country }}</td>
+                <td>{{ m.type }}</td>
+                <td>{{ m.year }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="/">返回首页</a>
+</body>
+</html>

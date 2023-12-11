@@ -1,0 +1,24 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+}
+input[type="text"], input[type="submit"] {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px 0;
+}
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}

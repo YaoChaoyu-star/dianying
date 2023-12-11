@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有演员</title>
+    <style>
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #616c61;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>演员列表</h1>
+    <table>
+        <tr>
+            <th>姓名</th>
+           <th>性别</th>
+           <th>国家</th>
+        </tr>
+        {% for actor in actors %}
+        <tr>
+            <td>{{ actor.actor_name }}</td> 
+            <td>{{ actor.gender }}</td> 
+            <td>{{ actor.country }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">返回首页</a>
+</body>
+</html>

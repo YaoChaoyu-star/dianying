@@ -16,6 +16,9 @@
             padding: 8px; /* 添加内边距 */
             text-align: center; /* 水平居中 */
         }
+        #boxOfficeChart {
+    max-height: 400px; /* 调整为所需的高度 */
+}
     </style>
 </head>
 <body>
@@ -49,7 +52,7 @@
         data: {
             labels: {{ results | map(attribute=0) | list | tojson }},
             datasets: [{
-                label: '平均票房',
+                label: '平均票房 (万元)',
                 data: {{ results | map(attribute=1) | list | tojson }},
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderColor: 'rgba(54, 162, 235, 1)',
@@ -61,7 +64,10 @@
                 y: {
                     beginAtZero: true
                 }
-            }
+            },
+            maintainAspectRatio: false,  // 新增行，禁用保持纵横比
+            responsive: true  // 新增行，使图表响应式
         }
     });
 </script>
+

@@ -1,17 +1,43 @@
-<!-- box_office_analysis.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>票房分析结果</title>
+    <style>
+        .centered {
+        display: flex;
+        justify-content: center; /* 水平居中 */
+        align-items: center; /* 垂直居中 */
+        flex-direction: row; /* 按行排列 */
+        gap: 10px; /* 按钮之间的间隙 */}
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        a {
+            background-color: #616c61;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin: 10px;
+        }
+        a:hover {
+            background-color: #768177;
+        }
+    </style>
 </head>
 <body>
     <h1>票房分析</h1>
-
-    <a href="/box_analysis/by_type">类型</a> |
-    <a href="/box_analysis/by_year">年份</a> |
-    <a href="/box_analysis/by_country">国家</a> 
-    
+    <div class="centered">
+        <a href="/box_analysis/by_type">类型</a>
+        <a href="/box_analysis/by_year">年份</a>
+        <a href="/box_analysis/by_country">国家</a> 
+    </div>
+    <br><br>
     <a href="/">返回</a>
 </body>
 </html>
