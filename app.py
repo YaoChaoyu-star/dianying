@@ -167,3 +167,23 @@ def all_movies():
 def all_actors():
     actors = actor.query.all()
     return render_template('all_actors.html', actors=actors)
+
+@app.route('/delete_movie', methods=['GET', 'POST'])
+def delete_movie():
+    if request.method == 'POST':
+        movie_id_to_delete = request.form.get('delete_movie_id')
+
+        movie_to_delete = movie.query.get(movie_id_to_delete)
+        if movie_to_delete:
+            db.session.delete(movie_to_delete)
+            db.session.commit()
+            return redirect(url_for('all_movies'))
+        else:
+            pass
+
+    return render_template('delete_movie.html')
+
+# ...
+
+if __name__ == '__main__':
+    app.run(debug=True)
